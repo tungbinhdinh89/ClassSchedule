@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassSchedule.Core.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241227220840_initMigration")]
+    [Migration("20241230033220_initMigration")]
     partial class initMigration
     {
         /// <inheritdoc />
@@ -99,14 +99,8 @@ namespace ClassSchedule.Core.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("EndTime")
-                        .HasColumnType("time");
-
                     b.Property<int>("LocationId")
                         .HasColumnType("int");
-
-                    b.Property<TimeSpan>("StartTime")
-                        .HasColumnType("time");
 
                     b.Property<int>("SubjectId")
                         .HasColumnType("int");
@@ -132,9 +126,7 @@ namespace ClassSchedule.Core.Migrations
                             Id = 1,
                             ClassId = 1,
                             Date = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 9, 30, 0, 0),
                             LocationId = 1,
-                            StartTime = new TimeSpan(0, 8, 0, 0, 0),
                             SubjectId = 1,
                             TeacherId = 1
                         },
@@ -143,9 +135,7 @@ namespace ClassSchedule.Core.Migrations
                             Id = 2,
                             ClassId = 1,
                             Date = new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 11, 30, 0, 0),
                             LocationId = 1,
-                            StartTime = new TimeSpan(0, 10, 0, 0, 0),
                             SubjectId = 2,
                             TeacherId = 2
                         },
@@ -154,9 +144,7 @@ namespace ClassSchedule.Core.Migrations
                             Id = 3,
                             ClassId = 2,
                             Date = new DateTime(2024, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 15, 30, 0, 0),
                             LocationId = 2,
-                            StartTime = new TimeSpan(0, 14, 0, 0, 0),
                             SubjectId = 3,
                             TeacherId = 3
                         },
@@ -165,9 +153,7 @@ namespace ClassSchedule.Core.Migrations
                             Id = 4,
                             ClassId = 2,
                             Date = new DateTime(2024, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 17, 30, 0, 0),
                             LocationId = 1,
-                            StartTime = new TimeSpan(0, 16, 0, 0, 0),
                             SubjectId = 4,
                             TeacherId = 4
                         },
@@ -176,9 +162,7 @@ namespace ClassSchedule.Core.Migrations
                             Id = 5,
                             ClassId = 1,
                             Date = new DateTime(2024, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 9, 30, 0, 0),
                             LocationId = 2,
-                            StartTime = new TimeSpan(0, 8, 0, 0, 0),
                             SubjectId = 5,
                             TeacherId = 5
                         });

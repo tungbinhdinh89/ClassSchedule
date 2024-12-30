@@ -2,6 +2,7 @@
 using ClassSchedule.Application.Interfaces;
 using ClassSchedule.Application.Mappings;
 using ClassSchedule.Application.Services;
+using ClassSchedule.Application.Services.ClassSchedule.Application.Services;
 using ClassSchedule.Core.DB;
 using Microsoft.EntityFrameworkCore;
 namespace ClassSchedule.API
@@ -12,10 +13,8 @@ namespace ClassSchedule.API
         {
             services.AddScoped<IScheduleService, ScheduleService>();
             services.AddTransient<TransientService>();
+            services.AddSingleton<SingletonService>();
             services.AddAutoMapper(typeof(MappingSchedule));
-            //services.AddSingleton<ILogger, LoggerService>();
-            //services.AddSingleton(typeof(ILogger<>), typeof(LoggerService<>));
-            services.AddSingleton<LoggerService>();
 
             return services;
         }

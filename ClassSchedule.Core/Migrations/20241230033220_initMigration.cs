@@ -72,8 +72,6 @@ namespace ClassSchedule.Core.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     ClassId = table.Column<int>(type: "int", nullable: false),
                     TeacherId = table.Column<int>(type: "int", nullable: false),
                     SubjectId = table.Column<int>(type: "int", nullable: false),
@@ -152,14 +150,14 @@ namespace ClassSchedule.Core.Migrations
 
             migrationBuilder.InsertData(
                 table: "Schedules",
-                columns: new[] { "Id", "ClassId", "Date", "EndTime", "LocationId", "StartTime", "SubjectId", "TeacherId" },
+                columns: new[] { "Id", "ClassId", "Date", "LocationId", "SubjectId", "TeacherId" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 9, 30, 0, 0), 1, new TimeSpan(0, 8, 0, 0, 0), 1, 1 },
-                    { 2, 1, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 11, 30, 0, 0), 1, new TimeSpan(0, 10, 0, 0, 0), 2, 2 },
-                    { 3, 2, new DateTime(2024, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 15, 30, 0, 0), 2, new TimeSpan(0, 14, 0, 0, 0), 3, 3 },
-                    { 4, 2, new DateTime(2024, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 17, 30, 0, 0), 1, new TimeSpan(0, 16, 0, 0, 0), 4, 4 },
-                    { 5, 1, new DateTime(2024, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 9, 30, 0, 0), 2, new TimeSpan(0, 8, 0, 0, 0), 5, 5 }
+                    { 1, 1, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1 },
+                    { 2, 1, new DateTime(2024, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 2 },
+                    { 3, 2, new DateTime(2024, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 3, 3 },
+                    { 4, 2, new DateTime(2024, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 4, 4 },
+                    { 5, 1, new DateTime(2024, 12, 29, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 5, 5 }
                 });
 
             migrationBuilder.CreateIndex(

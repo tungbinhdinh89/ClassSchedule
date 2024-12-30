@@ -13,12 +13,6 @@ namespace ClassSchedule.Core.DB.Configuration
             builder.Property(s => s.Date)
                    .IsRequired();
 
-            builder.Property(s => s.StartTime)
-                   .IsRequired();
-
-            builder.Property(s => s.EndTime)
-                   .IsRequired();
-
             builder.HasOne(s => s.Teacher)
                    .WithMany(t => t.Schedules)
                    .HasForeignKey(s => s.TeacherId);

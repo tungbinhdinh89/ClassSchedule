@@ -11,11 +11,8 @@ namespace ClassSchedule.Application.Implementations
 {
     public class ScheduleService(ApplicationDbContext dbContext, IMapper mapper, TransientService transientService, SingletonService singletonService) : IScheduleService
     {
-        public async Task CreateScheduleAsync(ScheduleDTO item)
+        public async Task CreateScheduleAsync(ScheduleRequestDTO item)
         {
-            transientService.LogScheduleDetails("Creating a new schedule.");
-            singletonService.LogGlobalActivity("Creating a new schedule globally.");
-
             var schedule = mapper.Map<Schedule>(item);
             dbContext.Schedules.Add(schedule);
             await dbContext.SaveChangesAsync();
@@ -40,6 +37,7 @@ namespace ClassSchedule.Application.Implementations
             singletonService.LogGlobalActivity("Fetching all schedules globally.");
 
             var schedules = await dbContext.Schedules
+                .Include(c => c.Class)
                 .Include(s => s.Subject)
                 .Include(s => s.Teacher)
                 .Include(s => s.Location)
@@ -48,7 +46,7 @@ namespace ClassSchedule.Application.Implementations
             return mapper.Map<IEnumerable<ScheduleDTO>>(schedules);
         }
 
-        public async Task<bool> UpdateScheduleAsync(ScheduleDTO item)
+        public async Task<bool> UpdateScheduleAsync(ScheduleRequestDTO item)
         {
             var schedule = await dbContext.Schedules.FindAsync(item.Id);
             if (schedule == null)

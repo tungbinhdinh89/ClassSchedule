@@ -34,11 +34,11 @@ namespace ClassSchedule.Core.Extensions
             );
 
             modelBuilder.Entity<Schedule>().HasData(
-                new Schedule { Id = 1, Date = new DateTime(2024, 12, 27), StartTime = new TimeSpan(8, 0, 0), EndTime = new TimeSpan(9, 30, 0), TeacherId = 1, SubjectId = 1, LocationId = 1, ClassId = 1 },
-                new Schedule { Id = 2, Date = new DateTime(2024, 12, 27), StartTime = new TimeSpan(10, 0, 0), EndTime = new TimeSpan(11, 30, 0), TeacherId = 2, SubjectId = 2, LocationId = 1, ClassId = 1 },
-                new Schedule { Id = 3, Date = new DateTime(2024, 12, 28), StartTime = new TimeSpan(14, 0, 0), EndTime = new TimeSpan(15, 30, 0), TeacherId = 3, SubjectId = 3, LocationId = 2, ClassId = 2 },
-                new Schedule { Id = 4, Date = new DateTime(2024, 12, 28), StartTime = new TimeSpan(16, 0, 0), EndTime = new TimeSpan(17, 30, 0), TeacherId = 4, SubjectId = 4, LocationId = 1, ClassId = 2 },
-                new Schedule { Id = 5, Date = new DateTime(2024, 12, 29), StartTime = new TimeSpan(8, 0, 0), EndTime = new TimeSpan(9, 30, 0), TeacherId = 5, SubjectId = 5, LocationId = 2, ClassId = 1 }
+                new Schedule { Id = 1, Date = new DateTime(2024, 12, 27), TeacherId = 1, SubjectId = 1, LocationId = 1, ClassId = 1 },
+                new Schedule { Id = 2, Date = new DateTime(2024, 12, 27), TeacherId = 2, SubjectId = 2, LocationId = 1, ClassId = 1 },
+                new Schedule { Id = 3, Date = new DateTime(2024, 12, 28), TeacherId = 3, SubjectId = 3, LocationId = 2, ClassId = 2 },
+                new Schedule { Id = 4, Date = new DateTime(2024, 12, 28), TeacherId = 4, SubjectId = 4, LocationId = 1, ClassId = 2 },
+                new Schedule { Id = 5, Date = new DateTime(2024, 12, 29), TeacherId = 5, SubjectId = 5, LocationId = 2, ClassId = 1 }
             );
         }
     }

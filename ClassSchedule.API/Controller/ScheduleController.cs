@@ -18,10 +18,8 @@ namespace ClassSchedule.API.Controller
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateSchedule([FromBody] ScheduleDTO scheduleDTO)
+        public async Task<IActionResult> CreateSchedule([FromBody] ScheduleRequestDTO scheduleDTO)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
 
             await scheduleService.CreateScheduleAsync(scheduleDTO);
 
@@ -29,7 +27,7 @@ namespace ClassSchedule.API.Controller
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSchedule(int id, [FromBody] ScheduleDTO scheduleDTO)
+        public async Task<IActionResult> UpdateSchedule(int id, [FromBody] ScheduleRequestDTO scheduleDTO)
         {
             if (id != scheduleDTO.Id)
                 return BadRequest("ID mismatch.");

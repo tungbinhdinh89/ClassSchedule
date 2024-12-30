@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassSchedule.Application.Services
+﻿namespace ClassSchedule.Application.Services
 {
-    internal class TransientService
+    public class TransientService
     {
+        public Guid ServiceId { get; }
+
+        public TransientService()
+        {
+            ServiceId = Guid.NewGuid();
+        }
+
+        public void LogScheduleDetails(string message)
+        {
+            Console.WriteLine($"[TransientService: {ServiceId}] {DateTime.UtcNow}: {message}");
+        }
+
     }
 }
